@@ -1,0 +1,29 @@
+{
+  "name": "funko_collection_app",
+  "version": "1.0.0",
+  "engines": {
+    "node": "10.15.3"
+  },
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alist315/funko_collection_app.git"
+  },
+  "author": "Aaron Reinheimer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alist315/funko_collection_app/issues"
+  },
+  "homepage": "https://github.com/alist315/funko_collection_app#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.5.5"
+  }
+}
