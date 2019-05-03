@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <% include ./partials/head.ejs %>
+  </head>
+  <body>
+<h1>WELCOME TO YOUR COLLECTION</h1>
+<% for(let i = 0; i< funkos.length; i++){ %>
+  <h2><%=funkos[i].name%></h2>
+  <a href="/funko/<%=funkos[i].id%>">
+    <img src="<%=funkos[i].img%>">
+  </a>
+<%}%>
+<nav>
+  <form action="/funko/new">
+  <input type="submit" value="ADD A NEW FUNKO" />
+</nav>
+  </body>
+</html>

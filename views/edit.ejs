@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include ./partials/head.ejs %>
+  </head>
+  <body>
+<h1>Edit <%=funko.name%></h1>
+<form class="" action="/funko/<%=funko.id%>?_method=PUT" method="POST">
+IMG <input type="text" name="img" value="<%=funko.img%>">
+NAME <input type="text" name="name" value="<%=funko.name%>">
+NUMBER IN Collection <input type="number" name="numberInCollection" value="<%=funko.numberInCollection%>">
+POP TYPE <input type="text" name="popType" value="<%=funko.popType%>">
+VALUE <input type="number" name="value" value="<%=funko.value%>">
+COLLECTION <input type="text" name="collection_" value="<%=funko.collection_ %>">
+QTY <input type="number" name="qty" value="<%=funko.qty%>">
+<input type="submit" class="" value="EDIT POP" />
+</form>
+  </body>
+</html>
