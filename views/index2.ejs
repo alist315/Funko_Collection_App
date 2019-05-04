@@ -4,16 +4,35 @@
   <% include ./partials/head.ejs %>
   </head>
   <body>
+    <nav>
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sort By:
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/funko/sortByName">Sort By: A-Z</a>
+          <a class="dropdown-item" href="/funko/sortByName2">Sort BY: Z-A</a>
+          <a class="dropdown-item" href="/funko/sortByNumber">Sort By: Number In Collection</a>
+        </div>
+        </div>
+      </nav>
 <h1>WELCOME TO YOUR COLLECTION</h1>
 <% for(let i = 0; i< funkos.length; i++){ %>
+  <div class="pops"
   <h2><%=funkos[i].name%></h2>
   <a href="/funko/<%=funkos[i].id%>">
     <img src="<%=funkos[i].img%>">
   </a>
+</div>
 <%}%>
 <nav>
   <form action="/funko/new">
-  <input type="submit" value="ADD A NEW FUNKO" />
+
+  <button type="submit" class="btn btn-secondary"><i class="fas fa-plus-circle"></i> ADD A NEW FUNKO</button>
+
+
+</form>
 </nav>
   </body>
 </html>

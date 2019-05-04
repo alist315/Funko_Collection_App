@@ -23,12 +23,34 @@ app.get('/', (req, res) => {
     });
   })
 });
-app.get('/funko', (req, res) => {
+app.get('/funko/', (req, res) => {
+  Funko.find({}, (error, allFunkos) => {
+    res.render('index2.ejs', {
+      funkos: allFunkos
+    });
+  })
+});
+
+app.get('/funko/sortByName', (req, res) => {
   Funko.find({}, (error, allFunkos) => {
     res.render('index2.ejs', {
       funkos: allFunkos
     });
   }).sort({name:1});
+});
+app.get('/funko/sortByNumber', (req, res) => {
+  Funko.find({}, (error, allFunkos) => {
+    res.render('index2.ejs', {
+      funkos: allFunkos
+    });
+  }).sort({numberInCollection:1});
+});
+app.get('/funko/sortByName2', (req, res) => {
+  Funko.find({}, (error, allFunkos) => {
+    res.render('index2.ejs', {
+      funkos: allFunkos
+    });
+  }).sort({name:-1});
 });
 
 app.post('/funko', (req, res) => {

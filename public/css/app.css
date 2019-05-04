@@ -1,3 +1,50 @@
 body {
-  background-color: red;
+font-family: "roboto";
+color:#BCBCBC;
+background-image: url('/funko-logo-white.09b7bdff.jpg');
+text-align: center;
+}
+img{
+  max-width: 100%;
+  max-height: 100%;
+}
+.enter {
+padding-top: 265px;
+}
+.btn btn-primary{
+  background-color: black;
+}
+.enter h1 {
+  font-size: 100px;
+}
+.enter button{
+  width: 300px;
+  height: 100px;
+  font-size: 30px;
+}
+.pops{
+display: inline-block;
+position: relative;
+margin: 0 auto;
+height: 320px;
+width: 320px;
+border-radius: 5%;
+text-align: center;
+box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.35);
+border: 3px solid #BCBCBC;
+margin: 1%;
+background-color: white;
+}
+.pop{
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  height: 485px;
+  width: 320px;
+  border-radius: 5%;
+  text-align: center;
+  box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.35);
+  border: 3px solid #BCBCBC;
+  margin: 1%;
+  background-color: white;
 }

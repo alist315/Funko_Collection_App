@@ -4,16 +4,32 @@
     <% include ./partials/head.ejs %>
   </head>
   <body>
-<h1>Edit <%=funko.name%></h1>
+<h1>EDIT <%=funko.name%></h1>
 <form class="" action="/funko/<%=funko.id%>?_method=PUT" method="POST">
-IMG <input type="text" name="img" value="<%=funko.img%>">
-NAME <input type="text" name="name" value="<%=funko.name%>">
-NUMBER IN Collection <input type="number" name="numberInCollection" value="<%=funko.numberInCollection%>">
-POP TYPE <input type="text" name="popType" value="<%=funko.popType%>">
-VALUE <input type="number" name="value" value="<%=funko.value%>">
-COLLECTION <input type="text" name="collection_" value="<%=funko.collection_ %>">
-QTY <input type="number" name="qty" value="<%=funko.qty%>">
-<input type="submit" class="" value="EDIT POP" />
+  <div class="form-row">
+    <div class="form-group col-md-6">
+IMG <input type="text" class="form-control" name="img" value="<%=funko.img%>">
+</div>
+<div class="form-group col-md-6">
+NAME <input type="text" class="form-control" name="name" value="<%=funko.name%>">
+</div>
+<div class="form-group col-md-4">
+NUMBER IN Collection <input type="number" class="form-control" name="numberInCollection" value="<%=funko.numberInCollection%>">
+</div>
+<div class="form-group col-md-4">
+POP TYPE <input type="text" class="form-control" name="popType" value="<%=funko.popType%>">
+</div>
+<div class="form-group col-md-2">
+VALUE <input type="number" class="form-control" name="value" value="<%=funko.value%>">
+</div>
+<div class="form-group col-md-2">
+COLLECTION <input type="text" class="form-control" name="collection_" value="<%=funko.collection_ %>">
+</div>
+<div class="form-group col-md-2">
+QTY <input type="number" class="form-control" name="qty" value="<%=funko.qty%>">
+</div>
+</div>
+<button type="submit"class="btn btn-secondary"><i class="far fa-edit"></i> EDIT POP! </button>
 </form>
   </body>
 </html>

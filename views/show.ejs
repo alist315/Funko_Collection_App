@@ -7,19 +7,21 @@
 <h1> <%=funko.name%> </h1>
 <nav>
   <form action="/funko">
-  <input type="submit" value="BACK TO YOUR COLLECTION" />
+  <button type="submit" class="btn btn-primary"><i class="fas fa-undo-alt"></i> BACK TO YOUR COLLECTION</button>
   </form>
 </nav>
+<div class="pop">
 <img src="<%=funko.img%>">
 <p><%=funko.name%> is a <%=funko.popType%>. </p>
 <p>It is number <%=funko.numberInCollection%> in the <%=funko.collection_ %> collection. </p>
 <p> It is worth approximately $<%=funko.value%>.00 . </p>
 <p> You have <%=funko.qty%> in your collection. </p>
+</div>
 <form class="" action="/funko/<%=funko.id%>?_method=DELETE" method="POST">
-  <input type="submit" value="DELETE">
+  <button type="submit" class="btn btn-secondary"><i class="far fa-trash-alt"></i>  DELETE</button>
 </form>
 <form class= "" action="/funko/<%=funko.id%>/edit">
-  <input type="submit" name="" value="EDIT">
+  <button type="submit" class="btn btn-secondary"><i class="far fa-edit"></i>  EDIT</button>
 </form>
 
   </body>
