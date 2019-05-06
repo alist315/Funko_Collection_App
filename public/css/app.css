@@ -12,18 +12,36 @@ nav{
   margin-right: 250px;
 }
 header h1 {
-  padding-right: 400px;
+  padding-right: 300px;
+}
+a{
+  width: 100%;
+  height: 80%;
+}
+.main{
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 body {
 font-family: "roboto";
-color:#6c757d;
-background-image: url('/funko-background.jpg');
+color:white;
+background-image: url('/817-Funko-b.jpg');
+background-size: cover;
 text-align: center;
 
 }
+.form{
+  width: 40%;
+  margin: 0 auto;
+  color: white;
+}
 .front{
-  background-color: royalBlue;
-  height: 100%;
+  height: 100vh;
+  background-image: url('/funko_hq_front.jpg');
+  background-size: cover;
+  color: #6c757d;
 }
 img{
   max-width: 100%;
@@ -41,27 +59,25 @@ padding-top: 265px;
   font-size: 30px;
 }
 .pops{
-display: inline-block;
-position: relative;
 margin: 0 auto;
 height: 320px;
-width: 320px;
+width: 400px;
 border-radius: 5%;
-text-align: center;
 box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.35);
 border: 3px solid #6c757d;
 margin: 1%;
 background-color: #61ABFF;
+display:flex;
+flex-direction: column;
 }
 
-.pop{
+.pop {
   display: inline-block;
   position: relative;
   margin: 0 auto;
   height: 485px;
   width: 320px;
   border-radius: 5%;
-  text-align: center;
   box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.35);
   border: 3px solid #6c757d;
   margin: 1%;

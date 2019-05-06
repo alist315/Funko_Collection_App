@@ -27,15 +27,16 @@
         </div>
         </div>
       </header>
+      <div class='main'>
 <% for(let i = 0; i< funkos.length; i++){ %>
-  <div class="pops"
-  <h2><%=funkos[i].name%></h2>
+  <div class="pops">
+  <h4> <%=funkos[i].name%> </h4>
   <a href="/funko/<%=funkos[i].id%>">
     <img src="<%=funkos[i].img%>">
   </a>
 </div>
 <%}%>
-
+</div>
 <footer>
   <% include ./partials/footer.ejs %>
 </footer>

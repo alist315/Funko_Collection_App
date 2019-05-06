@@ -5,6 +5,7 @@
   </head>
   <body>
 <h1>EDIT <%=wish.name%></h1>
+<div class="form">
 <form class="" action="/funko/wishlist/<%=wish.id%>?_method=PUT" method="POST">
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -31,6 +32,6 @@ QTY <input type="number" class="form-control" name="qty" value="<%=wish.qty%>">
 </div>
 <button type="submit"class="btn btn-secondary"><i class="far fa-edit"></i> EDIT POP! </button>
 </form>
-
+</div>
   </body>
 </html>
