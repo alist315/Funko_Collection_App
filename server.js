@@ -125,10 +125,10 @@ app.delete('/funko/wishlist/:id', (req, res) => {
   res.redirect('/funko/wishlist');
   });
 });
-Wish.create(wishSeed, (err, data) => {
-  if (err) console.log(err.message)
-console.log('added provided funko pop data')
-});
+// Wish.create(wishSeed, (err, data) => {
+//   if (err) console.log(err.message)
+// console.log('added provided funko pop data')
+// });
 
 app.get('/funko/wishlist/:id', (req, res) => {
   Wish.findById(req.params.id, (error, foundWishes) => {
@@ -152,10 +152,10 @@ app.put('/funko/:id', (req, res) => {
     res.redirect('/funko');
   });
 });
-Funko.create(funkoSeed, (err, data) => {
-    if (err) console.log(err.message)
-  console.log('added provided funko pop data')
-  });
+// Funko.create(funkoSeed, (err, data) => {
+//     if (err) console.log(err.message)
+//   console.log('added provided funko pop data')
+//   });
   app.get('/funko/:id', (req, res) => {
     Funko.findById(req.params.id, (error, foundFunkos) => {
       res.render('show.ejs', {
