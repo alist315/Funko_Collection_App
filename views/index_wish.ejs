@@ -7,11 +7,11 @@
     <header>
       <h1>WELCOME TO YOUR COLLECTION</h1>
     <nav>
-      <form action="/funko/new">
+      <form action="/funko/wishlist/new">
         <button type="submit" class="btn btn-secondary"><i class="fas fa-plus-circle"></i> ADD A NEW FUNKO</button>
   </form>
-  <form action="/funko/wishlist">
-    <button type="submit" class="btn btn-secondary"><i class="fas fa-arrow-circle-right"></i> GO TO WISHLIST</button>
+  <form action="/funko">
+    <button type="submit" class="btn btn-secondary"><i class="fas fa-arrow-circle-right"></i> GO BACK TO COLLECTION </button>
 
 
 
@@ -21,18 +21,19 @@
           Sort By:
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="/funko/sortByName">Sort By: A-Z</a>
-          <a class="dropdown-item" href="/funko/sortByName2">Sort BY: Z-A</a>
-          <a class="dropdown-item" href="/funko/sortByNumber">Sort By: Number In Collection</a>
+          <a class="dropdown-item" href="/funko/wishlist/sortByName">Sort By: A-Z</a>
+          <a class="dropdown-item" href="/funko/wishlist/sortByName2">Sort BY: Z-A</a>
+          <a class="dropdown-item" href="/funko/wishlist/sortByNumber">Sort By: Number In Collection</a>
         </div>
         </div>
       </header>
-<% for(let i = 0; i< funkos.length; i++){ %>
+<% for(let i = 0; i< wishes.length; i++){ %>
   <div class="pops"
-  <h2><%=funkos[i].name%></h2>
-  <a href="/funko/<%=funkos[i].id%>">
-    <img src="<%=funkos[i].img%>">
+  <h2><%=wishes[i].name%></h2>
+  <a href="/funko/wishlist/<%=wishes[i].id%>">
+    <img src="<%=wishes[i].img%>">
   </a>
+
 </div>
 <%}%>
 

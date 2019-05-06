@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <% include ./partials/head.ejs %>
+  </head>
+  <body>
+<h1> <%=wish.name%> </h1>
+<nav>
+  <form action="/funko/wishlist">
+  <button type="submit" class="btn btn-secondary"><i class="fas fa-undo-alt"></i> BACK TO YOUR WISHLIST</button>
+  </form>
+</nav>
+<div class="pop">
+<img src="<%=wish.img%>">
+<p><%=wish.name%> is a <%=wish.popType%>. </p>
+<p>It is number <%=wish.numberInCollection%> in the <%=wish.collection_ %> collection. </p>
+<p> It is worth approximately $<%=wish.value%>.00 . </p>
+</div>
+<form class="" action="/funko/wishlist/<%=wish.id%>?_method=DELETE" method="POST">
+  <div class="next">
+  <button type="submit" class="btn btn-secondary"><i class="far fa-trash-alt"></i>  DELETE</button>
+</form>
+<form class= "" action="/funko/wishlist/<%=wish.id%>/edit">
+  <button type="submit" class="btn btn-secondary"><i class="far fa-edit"></i>  EDIT</button>
+</div>
+</form>
+
+
+  </body>
+</html>

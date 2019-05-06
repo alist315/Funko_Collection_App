@@ -6,8 +6,10 @@ const db = mongoose.connection;
 const PORT = process.env.PORT || 3000;
 const Funko = require('./models/funko_pop.js');
 const funkoSeed = require('./models/funko.js');
-
+const wishSeed = require('./models/wishlist.js');
+const Wish =require('./models/funko_wish.js');
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/'+ 'funkoCollection';
+const morgan = require('morgan');
 
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
 
@@ -15,6 +17,7 @@ db.on('open' , () => {});
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+app.use(morgan('tiny'));
 
 app.get('/', (req, res) => {
   Funko.find({}, (error, allFunkos) => {
@@ -62,6 +65,78 @@ app.post('/funko', (req, res) => {
 app.get('/funko/new', (req, res) => {
   res.render('new.ejs');
 });
+
+//WISHLIST code!
+app.get('/funko/wishlist', (req, res) => {
+  Wish.find({}, (error, allWishes) => {
+    res.render('index_wish.ejs', {
+      wishes: allWishes
+    });
+  })
+});
+
+app.get('/funko/wishlist/sortByName', (req, res) => {
+  Wish.find({}, (error, allWishes) => {
+    res.render('index_wish.ejs', {
+    wishes: allWishes
+    });
+  }).sort({name:1});
+});
+app.get('/funko/wishlist/sortByNumber', (req, res) => {
+  Wish.find({}, (error, allWishes) => {
+    res.render('index_wish.ejs', {
+      wishes: allWishes
+    });
+  }).sort({numberInCollection:1});
+});
+app.get('/funko/wishlist/sortByName2', (req, res) => {
+  Wish.find({}, (error, allWishes) => {
+    res.render('index_wish.ejs', {
+    wishes: allWishes
+    });
+  }).sort({name:-1});
+});
+
+app.post('/funko/wishlist', (req, res) => {
+  Wish.create(req.body, (error, data) => {
+    res.redirect('/funko/wishlist');
+  });
+});
+
+app.get('/funko/wishlist/new', (req, res) => {
+  res.render('new_wish.ejs');
+});
+app.get('/funko/wishlist/:id/edit', (req, res) => {
+  Wish.findById(req.params.id, (err, foundWish) =>{
+    res.render( 'edit_wish.ejs',
+      {
+        wish: foundWish
+      }
+    );
+  });
+});
+app.put('/funko/wishlist/:id', (req, res) => {
+  Wish.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedProduct) => {
+    res.redirect('/funko/wishlist');
+  });
+});
+app.delete('/funko/wishlist/:id', (req, res) => {
+  Wish.findByIdAndRemove(req.params.id, (err, logs) => {
+  res.redirect('/funko/wishlist');
+  });
+});
+// Wish.create(wishSeed, (err, data) => {
+//   if (err) console.log(err.message)
+// console.log('added provided funko pop data')
+// });
+
+app.get('/funko/wishlist/:id', (req, res) => {
+  Wish.findById(req.params.id, (error, foundWishes) => {
+    res.render('show_wish.ejs', {
+      wish: foundWishes
+    });
+  });
+});
 app.get('/funko/:id/edit', (req, res) => {
   Funko.findById(req.params.id, (err, foundFunko) =>{
     res.render(
@@ -77,25 +152,23 @@ app.put('/funko/:id', (req, res) => {
     res.redirect('/funko');
   });
 });
-
 // Funko.create(funkoSeed, (err, data) => {
-//   if (err) console.log(err.message)
-// console.log('added provided funko pop data')
-// });
-app.get('/funko/:id', (req, res) => {
-  Funko.findById(req.params.id, (error, foundFunkos) => {
-    res.render('show.ejs', {
-      funko: foundFunkos
+  //   if (err) console.log(err.message)
+  // console.log('added provided funko pop data')
+  // });
+  app.get('/funko/:id', (req, res) => {
+    Funko.findById(req.params.id, (error, foundFunkos) => {
+      res.render('show.ejs', {
+        funko: foundFunkos
+      });
     });
   });
-});
 
-app.delete('/funko/:id', (req, res) => {
-  Funko.findByIdAndRemove(req.params.id, (err, logs) => {
-  res.redirect('/funko');
-  });
-});
-
+  app.delete('/funko/:id', (req, res) => {
+    Funko.findByIdAndRemove(req.params.id, (err, logs) => {
+      res.redirect('/funko');
+    });
+  });
 
 app.get('/funko/seed', (req, res) =>{
   Funko.create([

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include ./partials/head.ejs %>
+  </head>
+  <body>
+<h1>EDIT <%=wish.name%></h1>
+<form class="" action="/funko/wishlist/<%=wish.id%>?_method=PUT" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+IMG <input type="text" class="form-control" name="img" value="<%=wish.img%>">
+</div>
+<div class="form-group col-md-6">
+NAME <input type="text" class="form-control" name="name" value="<%=wish.name%>">
+</div>
+<div class="form-group col-md-4">
+NUMBER IN Collection <input type="number" class="form-control" name="numberInCollection" value="<%=wish.numberInCollection%>">
+</div>
+<div class="form-group col-md-4">
+POP TYPE <input type="text" class="form-control" name="popType" value="<%=wish.popType%>">
+</div>
+<div class="form-group col-md-2">
+VALUE <input type="number" class="form-control" name="value" value="<%=wish.value%>">
+</div>
+<div class="form-group col-md-2">
+COLLECTION <input type="text" class="form-control" name="collection_" value="<%=wish.collection_ %>">
+</div>
+<div class="form-group col-md-2">
+QTY <input type="number" class="form-control" name="qty" value="<%=wish.qty%>">
+</div>
+</div>
+<button type="submit"class="btn btn-secondary"><i class="far fa-edit"></i> EDIT POP! </button>
+</form>
+
+  </body>
+</html>
