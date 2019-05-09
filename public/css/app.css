@@ -74,6 +74,9 @@ background-color: #61ABFF;
 display:flex;
 flex-direction: column;
 }
+.pops:hover{
+  opacity: 0.7;
+}
 
 .pop {
   display: inline-block;
